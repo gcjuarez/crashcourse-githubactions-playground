@@ -1,0 +1,13 @@
+# name: Go CI checks
+# on:
+#   push:
+#     branches:
+#       - "**"
+#     tags-ignore:
+#       - "**"
+
+# jobs:
+#   go-workflow:
+#     uses:
+#     with:
+#     secrets:
