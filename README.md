@@ -10,7 +10,7 @@ Welcome to the github action crash course playgroung! The aim of this repository
 
 ### Run a workflow locally
 1. Install act
-2. Clone github-actions-call-reusable-workflow
+2. Fork and clone crashcourse-githubactions-playground repo: https://github.com/XoCedillo/crashcourse-githubactions-playground
 3. Run locally the workflow from `/.github/workflows/challenge_1.yml`
 
 ### Create a composite action 
@@ -23,7 +23,7 @@ See https://docs.github.com/en/actions/creating-actions/about-custom-actions#com
 The aim of this challenge is to implement a workflow that make use of the workflow defined in:
 https://github.com/XoCedillo/crashcourse-reusable-workflows/
 
-1. Clone https://github.com/XoCedillo/crashcourse-reusable-workflows repository
+1. Go to https://github.com/XoCedillo/crashcourse-reusable-workflows repository
 2. Read https://github.com/XoCedillo/crashcourse-reusable-workflows/blob/main/README.md to understand the structure of the reusable workflow
 3. Modify the `github-actions-call-reusable-workflow/.github/workflows/challenge_3.yml` so it can work
 4. Run succesfully `challenge_3.yml` workflow using act `act -j "go-workflow"`
