@@ -1,19 +1,18 @@
-# Uncomment the section below for challenge 2
-# name: Run a composite action
-# on: [push]
+name: Run a composite action
+on: [push]
 
 # Add the necesary params on the question marks to make the workflow work
-# jobs:
-#   hello_world_composite:
-#     runs-on: ubuntu-latest
-#     name: A job to say hello
-#     steps:
-#       - uses: actions/checkout@v3
-#       - run: ls -a ./.github/actions/
-#         shell: bash
-#       - id: foo
-#         uses: <composite_action>?
-#         with:
-#           who-to-greet: <who-to-greet>?
-#       - run: echo random-number ${{ steps.foo.outputs.random-number }}
-#         shell: bash
+jobs:
+  hello_world_composite:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v3
+      - run: ls -a ./.github/actions/
+        shell: bash
+      - id: foo
+        uses: gcjuarez/crashcourse-githubactions-playground@v2
+        with:
+          who-to-greet: 'Gera'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash

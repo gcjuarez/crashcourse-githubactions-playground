@@ -1,21 +1,38 @@
-name: "Hello World"
-description: "Greet someone"
+name: "Challenge 03"
+description: ""
 
 inputs:
-  who-to-greet: # id of input
-    description: "Who to greet"
+  command:
+    description: "Make task to execute"
     required: true
-    default: "World"
+  go-version:
+    description: "Go version to be used in the checks"
+    required: false
+    default: "1.21.0"
 
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
-    - id: random-number-generator
-      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-      shell: bash
-    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-      shell: bash
-    - run: ./.github/scripts/goodbye.sh
-      shell: bash
+    - name: Clone repository
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: ${{ inputs.go-version }}
+        cache: true
+
+    - uses: gcjuarez/crashcourse-githubactions-playground/test@v3
+      if: inputs.command == 'test'
+      with:
+        # modules: ${{ inputs.modules }}
+        go-version: ${{ inputs.go-version }}
+        # tools-dir: ${{ inputs.tools-dir }}
+
+    - uses: gcjuarez/crashcourse-githubactions-playground/lint@v3
+      if: inputs.command == 'lint'
+      with:
+        # modules: ${{ inputs.modules }}
+        go-version: ${{ inputs.go-version }}
+        # tools-dir: ${{ inputs.tools-dir }}
+
