@@ -1,16 +1,14 @@
-# Uncomment the section below for challenge 3
-# name: Go CI checks
-# on:
-#   push:
-#     branches:
-#       - "**"
-#     tags-ignore:
-#       - "**"
+name: Go CI checks
+on:
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "**"
 
-# Add the necesary params on the question marks to make the workflow work
-# jobs:
-#   go-workflow:
-#     uses: <reusable_workflow>?
-#     with:
-#       <input> : <input_value>?
-#     secrets: <secrets?>
+jobs:
+  go-workflow:
+    uses: gcjuarez/crashcourse-reusable-workflows/.github/workflows/main.yml@main
+    with:
+      project-name: crashcourse-gera
+      commands: '["test","lint"]'
