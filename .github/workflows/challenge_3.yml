@@ -8,7 +8,7 @@ on:
 
 jobs:
   go-workflow:
-    uses: gcjuarez/crashcourse-reusable-workflows/.github/workflows/main.yml@main
+    uses: XoCedillo/crashcourse-reusable-workflows/.github/workflows/main.yml@main
     with:
       project-name: crashcourse-gera
       commands: '["test","lint"]'
